@@ -4,6 +4,7 @@
 
 package frc.robot;
 
+import edu.wpi.first.hal.HALUtil;
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.CommandScheduler;
@@ -15,6 +16,12 @@ import edu.wpi.first.wpilibj2.command.CommandScheduler;
  * project.
  */
 public class Robot extends TimedRobot {
+
+  // RoboRIO serial numbers
+  public static final String kCompetitionRobotSerial = "00000000";;
+  public static final String kPracticeRobotSerial = "00000000";
+  public static final boolean isCompetitionRobot = !HALUtil.getSerialNumber().equals(kPracticeRobotSerial);
+
   private Command m_autonomousCommand;
 
   private RobotContainer m_robotContainer;

@@ -15,5 +15,12 @@ package frc.robot;
 public final class Constants {
   public static class OperatorConstants {
     public static final int kDriverControllerPort = 0;
+
+    // Placeholders for button mapping names
+    // Could replace with an Enum
+    public static final int kJoyButton1 = 1;
+    public static final int kJoyButton2 = 2;
+    public static final int kJoyButton3 = 3;
+    public static final int kJoyButton4 = 4;
   }
 }
