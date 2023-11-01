@@ -48,7 +48,10 @@ public class RobotContainer {
     // Schedule `exampleMethodCommand` when the controller's button 1 is pressed,
     // cancelling on release.
     m_driverController.button(OperatorConstants.kJoyButton1)
-        .whileTrue(m_exampleSubsystem.exampleMethodCommand());
+        .onTrue(m_exampleSubsystem.exampleActivateCommand());
+
+    m_driverController.button(OperatorConstants.kJoyButton2)
+        .onTrue(m_exampleSubsystem.exampleDeactivateCommand());
   }
 
   /**

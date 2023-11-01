@@ -21,12 +21,14 @@ public class ExampleCommand extends CommandBase {
     m_subsystem = subsystem;
 
     // Use addRequirements() here to declare subsystem dependencies.
-    addRequirements(m_subsystem);
+    addRequirements(subsystem);
   }
 
   // Called when the command is initially scheduled.
   @Override
-  public void initialize() {}
+  public void initialize() {
+    m_subsystem.exampleDoSomething();
+  }
 
   // Called every time the scheduler runs while the command is scheduled.
   @Override
@@ -39,6 +41,6 @@ public class ExampleCommand extends CommandBase {
   // Returns true when the command should end.
   @Override
   public boolean isFinished() {
-    return false;
+    return true;
   }
 }
