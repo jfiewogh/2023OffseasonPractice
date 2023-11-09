@@ -7,7 +7,10 @@ package frc.robot.subsystems;
 import edu.wpi.first.wpilibj2.command.CommandBase;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
-public class ExampleSubsystem extends SubsystemBase {
+import com.revrobotics.CANSparkMax;
+import com.revrobotics.CANSparkMaxLowLevel.MotorType;
+
+public class IntakeSubsystem extends SubsystemBase {
 
   /** State variables */
   private boolean isActive = false;
@@ -16,8 +19,20 @@ public class ExampleSubsystem extends SubsystemBase {
   /** Simulation related variables */
   private long simNextEventTime = 0;
 
+  private CANSparkMax motor;
+
   /** Creates a new ExampleSubsystem. */
-  public ExampleSubsystem() {}
+  public IntakeSubsystem() {
+    motor = new CANSparkMax(0, MotorType.kBrushless);
+  }
+
+  public void setMotorSpeed(double speed){
+    motor.set(speed);
+  }
+
+  public void stopMotor(){
+    setMotorSpeed(0);
+  }
 
   /**
    * 
