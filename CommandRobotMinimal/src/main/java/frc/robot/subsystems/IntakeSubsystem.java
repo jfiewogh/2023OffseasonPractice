@@ -19,19 +19,22 @@ public class IntakeSubsystem extends SubsystemBase {
   /** Simulation related variables */
   private long simNextEventTime = 0;
 
-  private CANSparkMax motor;
+  private CANSparkMax motor4;
+  private CANSparkMax motor5;
 
   /** Creates a new ExampleSubsystem. */
   public IntakeSubsystem() {
-    motor = new CANSparkMax(0, MotorType.kBrushless);
+    motor4 = new CANSparkMax(4, MotorType.kBrushless);
+    motor5 = new CANSparkMax(5, MotorType.kBrushless)
   }
 
-  public void setMotorSpeed(double speed){
-    motor.set(speed);
+  public void setMotorsSpeed(double speed){
+    motor4.set(speed);
+    motor5.set(speed);
   }
 
   public void stopMotor(){
-    setMotorSpeed(0);
+    setMotorsSpeed(0);
   }
 
   /**
