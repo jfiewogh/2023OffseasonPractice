@@ -26,25 +26,17 @@ public class RobotContainer {
   private final IntakeSubsystem intakeSubsystem = new IntakeSubsystem();
   private final IntakeCommand intakeCommand = new IntakeCommand(intakeSubsystem);
 
-  private Joystick joystick = new Joystick(0);
-  private JoystickButton[] buttons = new JoystickButton[13];
+  private CommandJoystick joystick = new CommandJoystick(0);
 
   /** The container for the robot. Contains subsystems, OI devices, and commands. */
   public RobotContainer() {
     // Configure the trigger bindings
-    createButtons();
-
     configureBindings();
   }
 
-  private void createButtons(){
-    for(int i = 0; i < buttons.length; i++){
-      buttons[i] = new JoystickButton(joystick, i);
-    }
-  }
 
   private void configureBindings() {
-    buttons[0].whenPressed(intakeCommand);
+    joystick.button(5).whileTrue(intakeCommand);
   }
 
   public Command getAutonomousCommand() {
