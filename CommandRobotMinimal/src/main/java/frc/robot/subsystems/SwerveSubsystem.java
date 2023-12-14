@@ -4,6 +4,7 @@
 
 package frc.robot.subsystems;
 
+import edu.wpi.first.math.kinematics.ChassisSpeeds;
 import edu.wpi.first.wpilibj2.command.CommandBase;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
@@ -41,12 +42,16 @@ public class SwerveSubsystem extends SubsystemBase {
   private Wheel backLeftWheel;
   private Wheel backRightWheel;
   
+  private ChassisSpeeds chassisSpeeds;
+
   /** Creates a new ExampleSubsystem. */
   public SwerveSubsystem() {
     frontLeftWheel = new Wheel();
     frontRightWheel = new Wheel();
     backLeftWheel = new Wheel();
     backRightWheel = new Wheel();
+
+    chassisSpeeds = new ChassisSpeeds(0, 0, 0);
   }
 
 //   public void setMotorsSpeed(double speed){
